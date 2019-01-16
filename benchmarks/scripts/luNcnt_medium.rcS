@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cd /benchs/splash2/
+export OMP_NUM_THREADS=16
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
+./lu_ncb -p64 -n1024 -b16
+echo "Done running lu non-contigious medium"
+/sbin/m5 exit
+/sbin/m5 exit

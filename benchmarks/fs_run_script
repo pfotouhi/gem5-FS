@@ -1,0 +1,40 @@
+#!/bin/sh
+
+M5_PATH=/home/swerner/gem5_NGNS
+FS_PATH=/home/swerner/FS
+BENCH_PATH=/home/swerner/benchmarks
+export M5_PATH
+export FS_PATH
+export BENCH_PATH
+
+numcpus="16"
+numdirs="4"
+
+# Benchmark to run
+script=$1
+# Topology (SUMA/ESUMA/Rome/Naples) 
+topology=$2
+
+$M5_PATH/build/X86_MESI_Three_Level/gem5.opt \
+	--outdir $M5_PATH/results_LBL_MESI_Three/$script-$topology \
+	--remote-gdb-port=0 \
+	$M5_PATH/configs/example/fs.py \
+	--disk-image=$FS_PATH/ubuntu-14.04-benchs_4GB.img \
+	--kernel=$FS_PATH/vmlinux \
+	--num-cpus=$numcpus \
+	--cpu-type=TimingSimpleCPU \
+	--cpu-clock=3GHz \
+	--mem-size=2GB \
+	--mem-type=HBM_1000_4H_1x128 \
+	--ruby \
+	--num-dirs=$numdirs \
+	--num-l2caches=$numdirs \
+	--l1i_size=64kB \
+	--l1d_size=512kB \
+	--l2_size=8MB \
+	--l1i_assoc=4 \
+	--l1d_assoc=8 \
+	--l2_assoc=16 \
+	--ports=32 \
+	--topology=$topology \
+	--script="$BENCH_PATH/scripts/$script.rcS" 

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cd /benchs/parsec/
+export OMP_NUM_THREADS=16
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
+export IM_CONCURRENCY=64
+./vips im_benchmark /benchs/inputs/bigben_2662x5500.v /benchs/outs/output.v
+echo "Done running vips large"
+/sbin/m5 exit
+/sbin/m5 exit

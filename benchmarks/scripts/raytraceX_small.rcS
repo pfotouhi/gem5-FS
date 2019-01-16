@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cd /benchs/splash2x/
+export OMP_NUM_THREADS=16
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
+./raytrace -s -p64 -a8 /benchs/inputs/teapot.env
+echo "Done running raytrace small"
+/sbin/m5 exit
+/sbin/m5 exit

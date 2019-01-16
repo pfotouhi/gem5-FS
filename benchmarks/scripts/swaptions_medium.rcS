@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cd /benchs/parsec/
+export OMP_NUM_THREADS=16
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
+./swaptions -ns 32 -sm 20000 -nt 64
+echo "Done running swaptions medium"
+/sbin/m5 exit
+/sbin/m5 exit

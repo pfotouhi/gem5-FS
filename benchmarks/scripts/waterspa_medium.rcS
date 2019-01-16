@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cd /benchs/splash2/
+export OMP_NUM_THREADS=16
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
+cat /benchs/inputs/waterspa.templateM | sed s/NUMPROCS/64/ > input_waterspa
+./water_spatial < input_waterspa
+echo "Done running water spatial medium"
+/sbin/m5 exit
+/sbin/m5 exit

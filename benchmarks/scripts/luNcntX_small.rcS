@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cd /benchs/splash2x/
+export OMP_NUM_THREADS=16
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
+./lu_ncb -p64 -n512 -b16
+echo "Done running lu non-contigious small"
+/sbin/m5 exit
+/sbin/m5 exit

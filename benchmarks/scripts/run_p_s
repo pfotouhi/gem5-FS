@@ -1,0 +1,28 @@
+#!/bin/sh
+
+cd /benchs/parsec/ 
+
+# blackscholes - small
+echo "Running blackscholes small"
+./blackscholes 4 /benchs/inputs/in_4K.txt /benchs/outs/prices.txt
+echo "Done running blackscholes small"
+
+# bodytrack - small
+echo "Running bodytrack small"
+./bodytrack /benchs/inputs/sequenceB_1 4 1 1000 5 0 4
+echo "Done running bodytrack small"
+
+# canneal - small
+echo "Running canneal small"
+./canneal 4 10000 2000 /benchs/inputs/100000.nets 32
+echo "Done running canneal small"
+
+# Facesim - small
+echo "Running facesim small"
+./facesim -timing -threads 4
+echo "Done running facesim small"
+
+# x264 - small
+echo "Running x264 small"
+./x264 --quiet --qp 20 --partitions b8x8,i4x4 --ref 5 --direct auto --b-pyramid --weightb --mixed-refs --no-fast-pskip --me umh --subme 7 --analyse b8x8,i4x4 --threads 64 -o eledream.264 /benchs/inputs/eledream_640x360_8.y4m
+echo "Done running x264 small"

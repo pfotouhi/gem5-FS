@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cd /benchs/splash2/
+export OMP_NUM_THREADS=16
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
+./radix -p64 -r4096 -n16777216 -m2147483647
+echo "Done running radix medium"
+/sbin/m5 exit
+/sbin/m5 exit

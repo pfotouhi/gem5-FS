@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cd /benchs/NAS/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
+export OMP_NUM_THREADS=16
+/sbin/m5 dumpresetstats
+./bt.S.x
+echo "Done running bt S"
+/sbin/m5 exit
+/sbin/m5 exit

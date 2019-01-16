@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cd /benchs/rodinia/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
+export OMP_NUM_THREADS=16
+/sbin/m5 dumpresetstats
+./kmeans -n 64 -i /benchs/data/kdd_cup
+echo "Done running kmeans"
+/sbin/m5 exit
+/sbin/m5 exit
