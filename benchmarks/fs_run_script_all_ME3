@@ -1,0 +1,113 @@
+#!/bin/sh
+
+GEM5_PATH=~/gem5_NGNS
+M5_PATH=~/FS
+SCRIPT_PATH=~/benchmarks/scripts
+export M5_PATH
+
+RES_PATH=~/ICS_Results
+
+numcpus="64"
+numdirs="8"
+
+# Benchmark to run
+script=$1
+# Topology (SUMA/ESUMA/Rome/Naples) 
+
+
+$GEM5_PATH/build/X86_MESI_Three_Level/gem5.opt \
+	--outdir $RES_PATH/$script-SUMA \
+	--remote-gdb-port=0 \
+	-e \
+	-r \
+	$GEM5_PATH/configs/example/fs.py \
+	--disk-image=$M5_PATH/ubuntu-14.04-benchs_4GB.img \
+	--kernel=$M5_PATH/vmlinux \
+	--num-cpus=$numcpus \
+	--cpu-type=TimingSimpleCPU \
+	--cpu-clock=3GHz \
+	--mem-size=2GB \
+	--mem-type=DDR4_2400_8x8 \
+	--ruby \
+	--num-dirs=$numdirs \
+	--num-l2caches=$numdirs \
+	--l1d_size=512kB \
+	--l2_size=8MB \
+	--l1d_assoc=8 \
+	--l2_assoc=16 \
+	--topology=SUMA \
+	--script="$SCRIPT_PATH/$script.rcS" &
+
+$GEM5_PATH/build/X86_MESI_Three_Level/gem5.opt \
+	--outdir $RES_PATH/$script-ESUMA \
+	--remote-gdb-port=0 \
+	-e \
+	-r \
+	$GEM5_PATH/configs/example/fs.py \
+	--disk-image=$M5_PATH/ubuntu-14.04-benchs_4GB.img \
+	--kernel=$M5_PATH/vmlinux \
+	--num-cpus=$numcpus \
+	--cpu-type=TimingSimpleCPU \
+	--cpu-clock=3GHz \
+	--mem-size=2GB \
+	--mem-type=DDR4_2400_8x8 \
+	--ruby \
+	--num-dirs=$numdirs \
+	--num-l2caches=$numdirs \
+	--l1d_size=512kB \
+	--l2_size=8MB \
+	--l1d_assoc=8 \
+	--l2_assoc=16 \
+	--topology=ESUMA \
+	--script="$SCRIPT_PATH/$script.rcS" &
+
+$GEM5_PATH/build/X86_MESI_Three_Level/gem5.opt \
+	--outdir $RES_PATH/$script-Naples \
+	--remote-gdb-port=0 \
+	-e \
+	-r \
+	$GEM5_PATH/configs/example/fs.py \
+	--disk-image=$M5_PATH/ubuntu-14.04-benchs_4GB.img \
+	--kernel=$M5_PATH/vmlinux \
+	--num-cpus=$numcpus \
+	--cpu-type=TimingSimpleCPU \
+	--cpu-clock=3GHz \
+	--mem-size=2GB \
+	--mem-type=DDR4_2400_8x8 \
+	--ruby \
+	--num-dirs=$numdirs \
+	--num-l2caches=$numdirs \
+	--l1d_size=512kB \
+	--l2_size=8MB \
+	--l1d_assoc=8 \
+	--l2_assoc=16 \
+	--topology=Naples \
+	--script="$SCRIPT_PATH/$script.rcS" &
+
+
+$GEM5_PATH/build/X86_MESI_Three_Level/gem5.opt \
+	--outdir $RES_PATH/$script-Rome \
+	--remote-gdb-port=0 \
+	-e \
+	-r \
+	$GEM5_PATH/configs/example/fs.py \
+	--disk-image=$M5_PATH/ubuntu-14.04-benchs_4GB.img \
+	--kernel=$M5_PATH/vmlinux \
+	--num-cpus=$numcpus \
+	--cpu-type=TimingSimpleCPU \
+	--cpu-clock=3GHz \
+	--mem-size=2GB \
+	--mem-type=DDR4_2400_8x8 \
+	--ruby \
+	--num-dirs=$numdirs \
+	--num-l2caches=$numdirs \
+	--l1d_size=512kB \
+	--l2_size=8MB \
+	--l1d_assoc=8 \
+	--l2_assoc=16 \
+	--topology=Rome \
+	--script="$SCRIPT_PATH/$script.rcS" &
+
+wait
+
+echo "Done running $script"
