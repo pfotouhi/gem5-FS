@@ -2,7 +2,7 @@
 
 GEM5_PATH=~/gem5_NGNS
 M5_PATH=~/FS
-SCRIPT_PATH=~/benchmarks/scripts
+SCRIPT_PATH=~/gem5-FS/benchmarks/scripts
 export M5_PATH
 
 RES_PATH=~/ICS_Results
