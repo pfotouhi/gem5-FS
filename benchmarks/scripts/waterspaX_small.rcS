@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cd /benchs/splash2x/
-export OMP_NUM_THREADS=16
+export OMP_NUM_THREADS=64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
 cat /benchs/inputs/waterspa.templateS | sed s/NUMPROCS/64/ > input_waterspa
 ./water_spatial < input_waterspa

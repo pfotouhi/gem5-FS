@@ -2,7 +2,7 @@
 
 cd /benchs/rodinia/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
-export OMP_NUM_THREADS=16
+export OMP_NUM_THREADS=64
 /sbin/m5 dumpresetstats
 ./hotspot 1024 1024 2 64 /benchs/data/temp_1024 /benchs/data/power_1024 output.out
 echo "Done running hotspot"

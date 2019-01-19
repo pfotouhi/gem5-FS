@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cd /benchs/parsec/
-export OMP_NUM_THREADS=16
+export OMP_NUM_THREADS=64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
 ./blackscholes 64 /benchs/inputs/in_64K.txt /benchs/outs/prices.txt
 echo "Done running blackscholes large"

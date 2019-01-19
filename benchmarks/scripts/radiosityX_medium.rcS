@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cd /benchs/splash2x/
-export OMP_NUM_THREADS=16
+export OMP_NUM_THREADS=64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
 ./radiosity -bf 1.5e-2 -batch -room -p 64
 echo "Done running radiosity medium"

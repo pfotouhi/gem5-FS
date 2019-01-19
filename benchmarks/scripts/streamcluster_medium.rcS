@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cd /benchs/parsec/
-export OMP_NUM_THREADS=16
+export OMP_NUM_THREADS=64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
 ./streamcluster 10 20 64 8192 8192 1000 none /benchs/outs/output.txt 64
 echo "Done running streamcluster medium"

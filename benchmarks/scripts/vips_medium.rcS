@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cd /benchs/parsec/
-export OMP_NUM_THREADS=16
+export OMP_NUM_THREADS=64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
 export IM_CONCURRENCY=64
 ./vips im_benchmark /benchs/inputs/vulture_2336x2336.v /benchs/outs/output.v

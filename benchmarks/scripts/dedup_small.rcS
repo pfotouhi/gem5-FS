@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cd /benchs/parsec/
-export OMP_NUM_THREADS=16
+export OMP_NUM_THREADS=64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
 ./dedup c -p -v -t 64 -i /benchs/inputs/mediaS.dat -o /benchs/outs/output.dat.ddp
 echo "Done running dedup small"

@@ -2,7 +2,7 @@
 
 cd /benchs/rodinia/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
-export OMP_NUM_THREADS=16
+export OMP_NUM_THREADS=64
 /sbin/m5 dumpresetstats
 ./heartwall /benchs/data/test.avi 20 64
 echo "Done running heartwall"
