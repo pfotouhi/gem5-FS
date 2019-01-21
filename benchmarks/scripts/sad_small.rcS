@@ -5,6 +5,6 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
 export OMP_NUM_THREADS=64
 /sbin/m5 dumpresetstats
 ./sad -i /benchs/data_parboil/sad_small_1, /benchs/data_parboil/sad_small_2
-echo "Done running sad large"
+echo "Done running sad small"
 /sbin/m5 exit
 /sbin/m5 exit
