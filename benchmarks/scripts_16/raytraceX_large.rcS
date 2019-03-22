@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cd /benchs/splash2x/
+export OMP_NUM_THREADS=16
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
+./raytrace -s -p16 -a8 /benchs/inputs/balls4.env
+echo "Done running raytrace large"
+/sbin/m5 exit
+/sbin/m5 exit

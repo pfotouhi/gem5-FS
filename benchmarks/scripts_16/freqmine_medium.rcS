@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cd /benchs/parsec/
+export OMP_NUM_THREADS=16
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
+export OMP_NUM_THREADS=16
+./freqmine /benchs/inputs/kosarak_500k.dat 410
+echo "Done running freqmine medium"
+/sbin/m5 exit
+/sbin/m5 exit

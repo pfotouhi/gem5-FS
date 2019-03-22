@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cd /benchs/rodinia/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
+export OMP_NUM_THREADS=16
+/sbin/m5 dumpresetstats
+./lavaMD -cores 64 -boxes1d 10
+echo "Done running lavaMD"
+/sbin/m5 exit
+/sbin/m5 exit

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cd /benchs/parsec
+export OMP_NUM_THREADS=16
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
+./bodytrack /benchs/inputs/sequenceB_4 4 4 4000 5 0 16
+echo "Done running bodytrack large"
+/sbin/m5 exit
+/sbin/m5 exit

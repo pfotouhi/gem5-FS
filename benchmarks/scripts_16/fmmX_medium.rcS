@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cd /benchs/splash2x/
+export OMP_NUM_THREADS=16
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
+cat /benchs/inputs/fmm.templateM | sed s/NUMPROCS/64/ > input_fmm
+./fmm < input_fmm
+echo "Done running fmm medium"
+/sbin/m5 exit
+/sbin/m5 exit

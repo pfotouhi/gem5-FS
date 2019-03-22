@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cd /benchs/parsec/
+export OMP_NUM_THREADS=16
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
+./fluidanimate 64 5 /benchs/inputs/in_300K.fluid /benchs/outs/out.fluid
+echo "Done running fluidanimate large"
+/sbin/m5 exit
+/sbin/m5 exit

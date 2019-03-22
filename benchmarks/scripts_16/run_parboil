@@ -1,0 +1,42 @@
+#!/bin/sh
+
+cd /benchs/parboil/ 
+
+# bfs - 1M
+./bfs -i 
+
+
+histo_small -i INP 20 4
+histo_large -i INP 1000 4
+
+lbm_small -i INP -o OUT 100
+lbm_large -i INP -o OUT 3000
+
+mri-gridding -i INP 32 0
+
+sad -i INP_1,INP_2
+
+sgemm -i INP_1,INP_2,INP_3
+
+SAME SAME
+
+stencil_small -i INP 128 128 32 100
+stencil_large -i INP 512 512 64 100
+
+tpacf_small -i tpacf_small/INPS_BY_COMMA -n 100 -p 487
+tpacf_medium -i tpacf_medium/INPS_BY_COMMA -n 100 -p 4096
+tpacf_large -i tpacf_large/INPS_BY_COMMA -n 100 -p 10391
+
+
+# BENCH - INPUT
+COMMAND
+
+# BENCH - INPUT
+COMMAND
+
+# BENCH - INPUT
+COMMAND
+
+# BENCH - INPUT
+COMMAND
+./blackscholes 4 /benchs/inputs/in_4K.txt /benchs/outs/prices.txt

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cd /benchs/parsec
+export OMP_NUM_THREADS=16
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
+./canneal 16 15000 2000 /benchs/inputs/400000.nets 128
+echo "Done running canneal large"
+/sbin/m5 exit
+/sbin/m5 exit
