@@ -3,7 +3,7 @@
 cd /benchs/splash2x/
 export OMP_NUM_THREADS=16
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
-cat /benchs/inputs/fmm.templateL | sed s/NUMPROCS/64/ > input_fmm
+cat /benchs/inputs/fmm.templateL | sed s/NUMPROCS/16/ > input_fmm
 ./fmm < input_fmm
 echo "Done running fmm large"
 /sbin/m5 exit
