@@ -3,7 +3,7 @@
 cd /benchs/splash2x/
 export OMP_NUM_THREADS=16
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/benchs/
-./lu_ncb -p64 -n2048 -b16
+./lu_ncb -p16 -n2048 -b16
 echo "Done running lu non-contigious large"
 /sbin/m5 exit
 /sbin/m5 exit
